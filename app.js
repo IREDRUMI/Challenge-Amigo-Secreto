@@ -1,41 +1,65 @@
-// El principal objetivo de este desaf√≠o es fortalecer tus habilidades en l√≥gica de programaci√≥n. Aqu√≠ deber√°s desarrollar la l√≥gica para resolver el problema.
-let listaAmigos = [];
-let amigo = "";
-let elementoHMTL = "";
+//El principal objetivo de este desaf√≠o es fortalecer tus habilidades en l√≥gica de programaci√≥n. Aqu√≠ deber√°s desarrollar la l√≥gica para resolver el problema.
+let listaAmigosJS = [];
 
-//Agregar nombres: Los usuarios escribir·n el nombre de un amigo en un campo de texto y lo agregar·n a una lista visible al hacer clic en "Adicionar".
+//Desarrolla una funci√≥n, que permita al usuario ingresar un nombre en el campo de texto y a√±adirlo a la lista de amigos creada anteriormente.
 function agregarAmigo(){
-    amigo = document.getElementById('amigo').value;
-    if (amigo = ""){
-        alert ("Ingrese un nombre valido");
+    validacionAmigos ('amigo',listaAmigosJS);
+    mostrarListaAmigos ('listaAmigos',listaAmigosJS);
+}
+
+function validacionAmigos(idinputHMTL,listaJavascript){
+    //Capturar el valor del campo de entrada
+    let amigo = document.getElementById(`${idinputHMTL}`).value;
+    //Validar la entrada: Implementar una validaci√≥n para asegurarse de que el campo no est√© vac√≠o.
+    if (amigo == ""){
+        //Si est√° vac√≠o, mostrar un alert con un mensaje de error: "Por favor, inserte un nombre."
+        alert ("Por favor, inserte un nombre.");
     }
     else{
-        listaAmigos.push(amigo);
+        // Si el valor es v√°lido, a√±adirlo al arreglo que almacena los nombre de amigos usando el m√©todo.push()
+        listaJavascript.push(amigo);
+        //Despu√©s de a√±adir el nombre, restablecer el campo de texto a una cadena vac√≠a.
+        document.getElementById('amigo').value = "";
+        return listaJavascript;
     }
 }
 
-function asignarTextoElemento(elemento,texto){
-    elementoHMTL = document.querySelector(elemento);
-    elementoHMTL.innerHTML = texto
-}
-
-function asignarLista(idlistaHMTL,listaJavascript){
-    let listaHTML = document.querySelector(¥#${idlistaHMTL}¥);
+//Visualizar la lista: Los nombres ingresados aparecer√°n en una lista debajo del campo de entrada.
+function mostrarListaAmigos(idlistaHMTL,listaJavascript){
+    //Obtener el elemento de la lista
+    let listaHTML = document.querySelector(`#${idlistaHMTL}`);
+    //Limpiar la lista existente
+    listaHTML.innerHTML = ""
+    let listaUnificada = ""    
+    //Iterar sobre el arreglo
     for (let index = 0; index < listaJavascript.length; index++) {
-        const element = array[index];
-        
+        //Agregar elementos a la lista
+        listaUnificada += `<li>${listaJavascript[index]}</li>`;      
     }
+    listaHTML.innerHTML = listaUnificada;
+    return;
 }
 
 
+//Sorteo aleatorio: Al hacer clic en el bot√≥n "Sortear Amigo", se seleccionar√° aleatoriamente un nombre de la lista y se mostrar  en la pagina.*/
+
+
+//FUNCION UTILIZANDO APPEND.CHILD
+/*function mostrarListaNombre(idlistaHMTL,listaJavascript){
+    let listaHTML = document.querySelector(`#${idlistaHMTL}`);
+    for (let index = 0; index < listaJavascript.length; index++) {
+        let li = document.createElement ('li');
+        li.innerText = listaJavascript[index];
+        listaHTML.appendChild(li);
+    }
+}*/
 
 
 
-/*Agregar nombres: Los usuarios escribir·n el nombre de un amigo en un campo de texto y lo agregar·n a una lista visible al hacer clic en "Adicionar".
 
-Validar entrada: Si el campo de texto est· vacÌo, el programa mostrar· una alerta pidiendo un nombre v·lido.
 
-Visualizar la lista: Los nombres ingresados aparecer·n en una lista debajo del campo de entrada.
 
-Sorteo aleatorio: Al hacer clic en el botÛn "Sortear Amigo", se seleccionar· aleatoriamente un nombre de la lista y se mostrar· en la p·gina.*/
+
+
+
 
