@@ -5,6 +5,7 @@ let listaAmigosJS = [];
 function agregarAmigo(){
     validacionAmigos ('amigo',listaAmigosJS);
     mostrarListaAmigos ('listaAmigos',listaAmigosJS);
+    return listaAmigosJS;
 }
 
 function validacionAmigos(idinputHMTL,listaJavascript){
@@ -39,10 +40,14 @@ function mostrarListaAmigos(idlistaHMTL,listaJavascript){
     listaHTML.innerHTML = listaUnificada;
     return;
 }
-
-
 //Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrar  en la pagina.*/
-
+function sortearAmigo(){
+    let numeroSorteado = Math.floor(Math.random())+1;
+    console.log(numeroSorteado);
+    document.getElementById('resultado').innerHTML = "";
+    document.getElementById('resultado').innerHTML = `El amigo secreto es ${listaAmigosJS[numeroSorteado]}`;
+    return;
+}
 
 //FUNCION UTILIZANDO APPEND.CHILD
 /*function mostrarListaNombre(idlistaHMTL,listaJavascript){
